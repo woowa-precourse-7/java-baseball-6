@@ -3,12 +3,22 @@
 ## Model
 
 --- 
-### BaseballNumber
+### [x] BaseballNumber
 - 숫자를 관리한다.(Collection 사용 - 일급 콜렉션) 
     - 서로다른 숫자.
     - 3자리 숫자
     - 1~9 범위의 숫자.
     - 잘못된 값이 들어오면 IllegalArgumentException을 발생시킨다.
+- 입력받은 숫자와 컴퓨터가 가지고 있는 BaseballNumber를 비교하여 값을 출력한다.
+  - Map<BaseballState, Integer> 반환.
+  - Nothing 상태일 경우 EmptyMap 반환.
+
+
+### [x] BaseballState
+- 값을 관리한다. (Ball, Strike, Nothing)
+- 뷰에 전달 될 값을 관리한다.(?)
+
+
 ### BaseballNumberGenerator
 - 숫자를 생성한다.
     - BaseballNumber 의 상수값을 이용한다. 
@@ -17,14 +27,8 @@
 ### BaseballGame
 - 멤버 변수 BaseballNumber, BaseballNumberGenerator를 갖는다.
 - 주입된 BaseballNumberGenerator 를 이용 해서 숫자를 생성한다.
-- 입력받은 숫자와 컴퓨터가 가지고 있는 BaseballNumber를 비교하여 값을 출력한다.
-    - BaseballState 반환.
 - 게임이 끝났는지 체크할 수 있다.
     - 이전에 들어온 값을 저장하여 체크한다.
-
-### BaseballState
-- 값을 관리한다. (Ball, Strike, Nothing)
-- 뷰에 전달 될 값을 관리한다.(?)
 
 ## View
 
