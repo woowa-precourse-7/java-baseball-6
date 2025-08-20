@@ -19,7 +19,7 @@
 - 뷰에 전달 될 값을 관리한다.(?)
 
 
-### BaseballNumberGenerator
+### [x] BaseballNumberGenerator
 - 숫자를 생성한다.
     - BaseballNumber 의 상수값을 이용한다. 
     - Random 값 추출은 `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()`를 활용한다.
