@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 public class BaseballGame {
-    private BaseballNumber baseballNumber;
     private final BaseballNumberGenerator baseballNumberGenerator;
+    private BaseballNumber baseballNumber;
     private boolean endFlag;
 
     public BaseballGame(BaseballNumberGenerator baseballNumberGenerator) {
@@ -28,6 +28,9 @@ public class BaseballGame {
     }
 
     private boolean isAllStrikes(Map<BaseballState, Integer> baseballStates) {
+        if (!baseballStates.containsKey(BaseballState.STRIKE)) {
+            return false;
+        }
         return baseballStates.get(BaseballState.STRIKE) == BaseballNumber.LENGTH;
     }
 

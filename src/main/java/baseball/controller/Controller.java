@@ -23,10 +23,13 @@ public class Controller {
         outputView.printInstruction();
 
         do {
-            Map<BaseballState, Integer> gameResult = baseballGame.playRound(inputView.getNumbers());
-            outputView.printState(gameResult);
+            baseballGame.startGame();
 
-        } while (checkGameEnd() && inputView.playMoreGame());
+            while (!checkGameEnd()) {
+                Map<BaseballState, Integer> gameResult = baseballGame.playRound(inputView.getNumbers());
+                outputView.printState(gameResult);
+            }
+        } while (inputView.playMoreGame());
     }
 
     private boolean checkGameEnd() {
@@ -34,7 +37,6 @@ public class Controller {
             return false;
         }
         outputView.printGameEndInstruction();
-
         return true;
     }
 }
