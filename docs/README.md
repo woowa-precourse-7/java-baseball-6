@@ -24,9 +24,10 @@
     - BaseballNumber 의 상수값을 이용한다. 
     - Random 값 추출은 `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()`를 활용한다.
 
-### BaseballGame
+### [x] BaseballGame
 - 멤버 변수 BaseballNumber, BaseballNumberGenerator를 갖는다.
 - 주입된 BaseballNumberGenerator 를 이용 해서 숫자를 생성한다.
+- 한 라운드를 진행하고 결과를 리턴한다.
 - 게임이 끝났는지 체크할 수 있다.
     - 이전에 들어온 값을 저장하여 체크한다.
 
