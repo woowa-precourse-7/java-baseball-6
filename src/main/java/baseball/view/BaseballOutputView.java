@@ -17,6 +17,7 @@ public class BaseballOutputView implements OutputView {
         }
 
         for (BaseballState state : BaseballState.values()) {
+            if(state == BaseballState.NOTHING) continue;
             printIfContains(states, state);
         }
 
@@ -31,6 +32,6 @@ public class BaseballOutputView implements OutputView {
 
     @Override
     public void printGameEndInstruction() {
-        System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+        System.out.println("숫자를 모두 맞히셨습니다! 게임 종료");
     }
 }

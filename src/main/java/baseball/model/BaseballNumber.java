@@ -41,6 +41,11 @@ public class BaseballNumber {
         }
     }
 
+    /**
+     *
+     * @param userNumbers 유저가 입력한 숫자를 랩핑한 값.(무결성 보장)
+     * @return Map<BaseballState,Integer> 반환. 만약 BaseballState.Nothing 일경우 EmptyMap 리턴.
+     */
     public Map<BaseballState, Integer> getBaseballStates(BaseballNumber userNumbers) {
         Map<BaseballState, Integer> baseballStates = new HashMap<>();
 
