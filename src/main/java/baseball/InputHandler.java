@@ -4,8 +4,9 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class InputHandler {
 
-    public static String inputNumber(){
-        return Console.readLine();
+    public static UserNumbers inputNumber(){
+        String userInput = Console.readLine();
+        return new UserNumbers(userInput);
     }
 
     public static GameStatus inputCommand(){
