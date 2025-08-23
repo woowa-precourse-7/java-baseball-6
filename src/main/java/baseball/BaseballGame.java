@@ -12,51 +12,33 @@ public class BaseballGame {
 
         InputHandler inputHandler = new InputHandler();
         OutputHandler outputHandler = new OutputHandler();
+        AnswerNumbers answerNumbers = new AnswerNumbers();
 
         // 게임 안내
         outputHandler.gameStart();
 
-        // answer List 에 정답 설정
-        List<Integer> answer = new ArrayList<>();
-        while (answer.size() < 3) {
-            int randomNumber = Randoms.pickNumberInRange(1, 9);
-            if (!answer.contains(randomNumber)) {
-                answer.add(randomNumber);
-            }
-        }
-
         // 테스트를 위한 정답 출력
-        System.out.println(answer.get(0) + "" + answer.get(1) + "" + answer.get(2));
+        answerNumbers.printAnswerNumbers();
 
         boolean gameClear = false;
         while(!gameClear){
             // 입력값 받기
             outputHandler.inputNumber();
             String[] userInput = (inputHandler.inputNumber()).split("");
-
-            int first = Integer.parseInt(userInput[0]);
-            int second = Integer.parseInt(userInput[1]);
-            int third = Integer.parseInt(userInput[2]);
+            List<Integer> userInputList = new ArrayList<>();
+            for(String s : userInput) {
+                userInputList.add(Integer.parseInt(s));
+            }
 
             int strike = 0;
             int ball = 0;
 
-            if(first == answer.get(0)){
-                strike++;
-            }else if(answer.contains(first)){
-                ball++;
-            }
-
-            if(second == answer.get(1)){
-                strike++;
-            }else if(answer.contains(second)){
-                ball++;
-            }
-
-            if(third == answer.get(2)){
-                strike++;
-            }else if(answer.contains(third)){
-                ball++;
+            for(int i = 0; i < 3; i++){
+                if(answerNumbers.equals(userInputList.get(i), i)){
+                    strike++;
+                }else if(answerNumbers.contains(userInputList.get(i))){
+                    ball++;
+                }
             }
 
             if(strike > 0 && ball > 0){
