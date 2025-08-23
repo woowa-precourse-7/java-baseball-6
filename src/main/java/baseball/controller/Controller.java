@@ -29,6 +29,8 @@ public class Controller {
                 Map<BaseballState, Integer> gameResult = baseballGame.playRound(inputView.getNumbers());
                 outputView.printState(gameResult);
             }
+
+            outputView.printGameEndInstruction();
         } while (inputView.playMoreGame());
     }
 
@@ -36,7 +38,6 @@ public class Controller {
         if (!baseballGame.checkEnd()) {
             return false;
         }
-        outputView.printGameEndInstruction();
         return true;
     }
 }
