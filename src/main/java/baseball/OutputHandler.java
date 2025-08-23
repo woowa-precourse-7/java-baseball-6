@@ -9,31 +9,31 @@ public class OutputHandler {
     private static final String STRIKE = "스트라이크";
     private static final String NOTHING = "낫싱";
 
-    public void gameStart() {
+    public static void gameStart() {
         System.out.println(GAME_START);
     }
 
-    public void inputNumber(){
+    public static void inputNumber(){
         System.out.print(INPUT_NUMBER_NOTIFY);
     }
 
-    public void ballAndStrike(int ball, int strike){
+    public static void ballAndStrike(int ball, int strike){
         System.out.println(ball + BALL + " " + strike + STRIKE);
     }
 
-    public void ball(int ball){
+    public static void ball(int ball){
         System.out.println(ball + BALL);
     }
 
-    public void strike(int strike){
+    public static void strike(int strike){
         System.out.println(strike + STRIKE);
     }
 
-    public void nothing(){
+    public static void nothing(){
         System.out.println(NOTHING);
     }
 
-    public void gameClear(){
+    public static void gameClear(){
         System.out.println(GAME_CLEAR);
     }
 }
