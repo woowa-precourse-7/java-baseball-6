@@ -1,0 +1,39 @@
+package baseball;
+
+public class OutputHandler {
+
+    private static final String GAME_START = "숫자 야구 게임을 시작합니다.";
+    private static final String INPUT_NUMBER_NOTIFY = "숫자를 입력해주세요 : ";
+    private static final String GAME_CLEAR = "3개의 숫자를 모두 맞히셨습니다! 게임 종료";
+    private static final String BALL = "볼";
+    private static final String STRIKE = "스트라이크";
+    private static final String NOTHING = "낫싱";
+
+    public void gameStart() {
+        System.out.println(GAME_START);
+    }
+
+    public void inputNumber(){
+        System.out.print(INPUT_NUMBER_NOTIFY);
+    }
+
+    public void ballAndStrike(int ball, int strike){
+        System.out.println(ball + BALL + " " + strike + STRIKE);
+    }
+
+    public void ball(int ball){
+        System.out.println(ball + BALL);
+    }
+
+    public void strike(int strike){
+        System.out.println(strike + STRIKE);
+    }
+
+    public void nothing(){
+        System.out.println(NOTHING);
+    }
+
+    public void gameClear(){
+        System.out.println(GAME_CLEAR);
+    }
+}

@@ -7,10 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BaseballGame {
+
     public static void run() {
 
+        InputHandler inputHandler = new InputHandler();
+        OutputHandler outputHandler = new OutputHandler();
+
         // 게임 안내
-        System.out.println("숫자 야구 게임을 시작합니다.");
+        outputHandler.gameStart();
 
         // answer List 에 정답 설정
         List<Integer> answer = new ArrayList<>();
@@ -21,13 +25,14 @@ public class BaseballGame {
             }
         }
 
-        System.out.println("정답"+answer.get(0)+answer.get(1)+answer.get(2));
+        // 테스트를 위한 정답 출력
+        System.out.println(answer.get(0) + "" + answer.get(1) + "" + answer.get(2));
 
         boolean gameClear = false;
         while(!gameClear){
             // 입력값 받기
-            System.out.print("숫자를 입력해주세요 : ");
-            String[] userInput = (Console.readLine()).split("");
+            outputHandler.inputNumber();
+            String[] userInput = (inputHandler.inputNumber()).split("");
 
             int first = Integer.parseInt(userInput[0]);
             int second = Integer.parseInt(userInput[1]);
@@ -54,22 +59,19 @@ public class BaseballGame {
                 ball++;
             }
 
-            String result;
-
-            if(strike == 0 && ball == 0){
-                result = "낫싱";
-            }else if(strike > 0 && ball == 0){
-                result = strike+"스트라이크";
-            }else if(ball > 0 && strike == 0){
-                result = ball+"볼";
+            if(strike > 0 && ball > 0){
+                outputHandler.ballAndStrike(ball, strike);
+            }else if(strike > 0){
+                outputHandler.strike(strike);
+            }else if(ball > 0){
+                outputHandler.ball(ball);
             }else{
-                result = ball+"볼 "+strike+"스트라이크";
+                outputHandler.nothing();
             }
 
-            System.out.println(result);
             if(strike == 3){
                 gameClear = true;
-                System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+                outputHandler.gameClear();
             }
         }
 
