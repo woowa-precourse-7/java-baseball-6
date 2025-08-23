@@ -35,9 +35,6 @@ public class Controller {
     }
 
     private boolean checkGameEnd() {
-        if (!baseballGame.checkEnd()) {
-            return false;
-        }
-        return true;
+        return baseballGame.checkEnd();
     }
 }

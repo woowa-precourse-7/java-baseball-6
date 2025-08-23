@@ -7,7 +7,7 @@ import java.util.List;
 public class BaseballInputView implements InputView {
     @Override
     public List<Integer> getNumbers() {
-        System.out.print("숫자를 입력해주세요 : ");
+        System.out.print("숫자를 입력 해 주세요 : ");
 
         return Arrays.stream(Console.readLine()
                         .split(""))
