@@ -1,40 +1,35 @@
 package baseball.controller;
 
 import baseball.model.BaseballGame;
-import baseball.model.BaseballNumberGeneratorImpl;
-import baseball.model.BaseballState;
+import baseball.model.BaseballNumberGenerator;
 import baseball.view.InputView;
 import baseball.view.OutputView;
-import java.util.Map;
 
 public class Controller {
     private final InputView inputView;
     private final OutputView outputView;
-    private final BaseballGame baseballGame;
+    private final BaseballNumberGenerator baseballNumberGenerator;
 
-    public Controller(InputView inputView, OutputView outputView) {
+    public Controller(InputView inputView, OutputView outputView, BaseballNumberGenerator baseballNumberGenerator) {
         this.inputView = inputView;
         this.outputView = outputView;
-
-        baseballGame = new BaseballGame(new BaseballNumberGeneratorImpl());
+        this.baseballNumberGenerator = baseballNumberGenerator;
     }
 
     public void run() {
+        BaseballGame baseballGame = new BaseballGame(baseballNumberGenerator);
+
         outputView.printInstruction();
-
         do {
-            baseballGame.startGame();
-
-            while (!checkGameEnd()) {
-                Map<BaseballState, Integer> gameResult = baseballGame.playRound(inputView.getNumbers());
-                outputView.printState(gameResult);
-            }
-
-            outputView.printGameEndInstruction();
+            playGame(baseballGame);
         } while (inputView.playMoreGame());
     }
 
-    private boolean checkGameEnd() {
-        return baseballGame.checkEnd();
+    private void playGame(BaseballGame baseballGame) {
+        baseballGame.startGame();
+        while (!baseballGame.checkEnd()) {
+            outputView.printState(baseballGame.playRound(inputView.getNumbers()));
+        }
+        outputView.printGameEndInstruction();
     }
 }
