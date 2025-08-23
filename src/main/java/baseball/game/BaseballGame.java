@@ -15,15 +15,22 @@ public class BaseballGame {
         OutputHandler.gameStart();
 
         while(gameStatus != GameStatus.EXIT){
-            AnswerNumbers answerNumbers = new AnswerNumbers();
-
-            GameSession newGameSession = new GameSession(answerNumbers);
-            newGameSession.start();
-
-            OutputHandler.gameContinue();
-            gameStatus = InputHandler.inputCommand();
+            playOneGameSession();
+            gameStatus = askContinueOrExit();
         }
 
         Console.close();
+    }
+
+    private static GameStatus askContinueOrExit() {
+        OutputHandler.gameContinueOrExit();
+        return InputHandler.inputCommand();
+    }
+
+    private static void playOneGameSession() {
+        AnswerNumbers answerNumbers = new AnswerNumbers();
+
+        GameSession newGameSession = new GameSession(answerNumbers);
+        newGameSession.start();
     }
 }

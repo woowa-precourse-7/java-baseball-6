@@ -38,7 +38,7 @@ public class OutputHandler {
         System.out.println(GAME_CLEAR);
     }
 
-    public static void gameContinue(){
+    public static void gameContinueOrExit(){
         System.out.println(GAME_CONTINUE);
     }
 }

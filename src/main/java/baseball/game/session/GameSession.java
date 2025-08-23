@@ -13,11 +13,8 @@ public class GameSession {
     }
 
     public void start(){
-        answerNumbers.printAnswerNumbers();
-
         while(true){
-            OutputHandler.inputNumber();
-            UserNumbers userNumbers = InputHandler.inputNumber();
+            UserNumbers userNumbers = askUserNumbers();
 
             GameSessionStatus gameSessionStatus = userNumbers.compareToAnswer(answerNumbers);
 
@@ -28,5 +25,10 @@ public class GameSession {
                 break;
             }
         }
+    }
+
+    private static UserNumbers askUserNumbers() {
+        OutputHandler.inputNumber();
+        return InputHandler.inputNumber();
     }
 }

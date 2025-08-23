@@ -20,11 +20,6 @@ public class AnswerNumbers {
         this.answerNumbers = answer;
     }
 
-    // 테스트를 위한 정답 출력 메서드
-    public void printAnswerNumbers() {
-        System.out.println(answerNumbers.get(0) + "" + answerNumbers.get(1) + "" + answerNumbers.get(2));
-    }
-
     public boolean contains(int number){
         return answerNumbers.contains(number);
     }
