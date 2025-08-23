@@ -9,7 +9,7 @@ public class BaseballNumber {
     public static final int MIN_VALUE = 1;
     public static final int MAX_VALUE = 9;
 
-    private List<Integer> numbers;
+    private final List<Integer> numbers;
 
     public BaseballNumber(List<Integer> numbers) {
         validateDuplicate(numbers);
@@ -42,9 +42,8 @@ public class BaseballNumber {
     }
 
     /**
-     *
      * @param userNumbers 유저가 입력한 숫자를 랩핑한 값.(무결성 보장)
-     * @return Map<BaseballState,Integer> 반환. 만약 BaseballState.Nothing 일경우 EmptyMap 리턴.
+     * @return Map<BaseballState, Integer> 반환. 만약 BaseballState.Nothing 일경우 EmptyMap 리턴.
      */
     public Map<BaseballState, Integer> getBaseballStates(BaseballNumber userNumbers) {
         Map<BaseballState, Integer> baseballStates = new HashMap<>();
