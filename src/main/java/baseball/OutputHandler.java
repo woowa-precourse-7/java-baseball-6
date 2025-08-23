@@ -8,6 +8,7 @@ public class OutputHandler {
     private static final String BALL = "볼";
     private static final String STRIKE = "스트라이크";
     private static final String NOTHING = "낫싱";
+    private static final String GAME_CONTINUE = "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.";
 
     public static void gameStart() {
         System.out.println(GAME_START);
@@ -35,5 +36,9 @@ public class OutputHandler {
 
     public static void gameClear(){
         System.out.println(GAME_CLEAR);
+    }
+
+    public static void gameContinue(){
+        System.out.println(GAME_CONTINUE);
     }
 }
