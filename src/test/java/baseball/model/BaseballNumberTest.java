@@ -2,7 +2,6 @@ package baseball.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.assertj.core.api.Assertions.entry;
 
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
