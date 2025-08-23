@@ -1,5 +1,7 @@
-package baseball;
+package baseball.io;
 
+import baseball.game.GameStatus;
+import baseball.game.numbers.UserNumbers;
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputHandler {

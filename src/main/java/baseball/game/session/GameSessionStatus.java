@@ -1,10 +1,12 @@
-package baseball;
+package baseball.game.session;
 
-public class GameResult {
+import baseball.io.OutputHandler;
+
+public class GameSessionStatus {
     private final int strike;
     private final int ball;
 
-    public GameResult(int strike, int ball) {
+    public GameSessionStatus(int strike, int ball) {
         this.strike = strike;
         this.ball = ball;
     }

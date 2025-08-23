@@ -1,4 +1,6 @@
-package baseball;
+package baseball.game.numbers;
+
+import baseball.game.session.GameSessionStatus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +32,7 @@ public class UserNumbers {
         this.userNumbers = numbers;
     }
 
-    public GameResult compareToAnswer(AnswerNumbers answerNumbers) {
+    public GameSessionStatus compareToAnswer(AnswerNumbers answerNumbers) {
         int ball = 0;
         int strike = 0;
         for(int i = 0; i < 3; i++){
@@ -40,6 +42,6 @@ public class UserNumbers {
                 ball++;
             }
         }
-        return new GameResult(strike, ball);
+        return new GameSessionStatus(strike, ball);
     }
 }

@@ -1,25 +1,24 @@
-package baseball;
+package baseball.game;
 
+import baseball.game.session.GameSession;
+import baseball.io.InputHandler;
+import baseball.io.OutputHandler;
+import baseball.game.numbers.AnswerNumbers;
 import camp.nextstep.edu.missionutils.Console;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class BaseballGameRunner {
+public class BaseballGame {
 
     public static void run() {
 
-        // 게임 상태 변경
         GameStatus gameStatus = GameStatus.START;
 
-        // 게임 안내
         OutputHandler.gameStart();
 
         while(gameStatus != GameStatus.EXIT){
             AnswerNumbers answerNumbers = new AnswerNumbers();
 
-            BaseballGame newGame = new BaseballGame(answerNumbers);
-            newGame.gameStart();
+            GameSession newGameSession = new GameSession(answerNumbers);
+            newGameSession.start();
 
             OutputHandler.gameContinue();
             gameStatus = InputHandler.inputCommand();
