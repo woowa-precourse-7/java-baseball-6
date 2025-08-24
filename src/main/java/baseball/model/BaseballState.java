@@ -6,7 +6,7 @@ public enum BaseballState {
     NOTHING("낫싱"),
     ;
 
-    private String info;
+    private final String info; // final 수정.
 
     BaseballState(String info) {
         this.info = info;
