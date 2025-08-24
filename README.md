@@ -142,3 +142,61 @@ while (computer.size() < 3) {
 - 미션은 [java-baseball-6](https://github.com/woowacourse-precourse/java-baseball-6) 저장소를 Fork & Clone해 시작한다.
 - **기능을 구현하기 전 `docs/README.md`에 구현할 기능 목록을 정리**해 추가한다.
 - 과제 진행 및 제출 방법은 [프리코스 과제 제출](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 문서를 참고한다.
+
+---
+
+## 🌿 구현할 기능 목록
+
+### 1. 랜덤 값 생성하기 (완료)
+
+- [ ] 숫자 야구의 정답이 될 3자리 수를 `camp.nextstep.edu.missionutils.Randoms`을 이용하여 구현한다.
+
+**구현 방법** (후보)
+~~- Randoms.pickNumberInRange(100, 999)를 사용하여 3자리 수를 만든다.
+    - 장점 : 값을 생성하는 코드가 1줄로 끝난다.
+    - 단점 : 0이 포함되는 수를 배제하기 어렵다.
+- 1~9의 수를 3개 만들어 배열에 저장해 관리한다.
+  - 장점 : 코드의 가독성이 높아진다.
+  - 단점 : 함수를 반복 호출 해야한다. 
+  - 함수 호출 오버헤드가 크지 않기 때문에 이 방법을 채택
+
+
+서로 다른 3자리 수를 선택해야한다는 조건을 보지 못했다.
+Randoms에 pickUniqueNumbersInRange()가 있긴 하지만 pickNumberInRange()함수를 사용하라고 명시되어있으므로 중복값 처리에 대해 고민해야한다.
+처음엔 int[]배열로 구현했지만 Randoms 유틸을 보다보니 함수 매개 변수 / 반환값 자료형으로 List<>를 사용하고 있었다. 따라서 구현에도 List<Integer>를 사용할 것이다.
+pickUniqueNumbersInRange()함수 내부를 참고하려 했지만, pickNumberInRange()가 사용되고 있지 않았다.
+검증 로직을 따로 작성하는 수밖에 없다. 
+validqteOOO이되 모듈내의 함수명과는 겹치지 않게 해야할 것 같다.
+
+
+### 2. 정답 확인 로직 구현하기 (완료)
+
+- [ ] 입력한 수에 대한 결과를 볼, 스트라이크 개수로 표시한다.
+- 스트라이크 : 같은 자리에 있는 경우
+- 볼 : 다른 자리에 있는 경우
+- 낫싱 : 같은 수가 전혀 없음
+
+3스트라이크(모든 숫자를 맞춘 경우)
+- [ ] 게임 종료 문구 출력
+- [ ] 재시작/종료 구분 수 입력받아 수행
+
+**예외 처리**
+- [ ] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션을 종료시킨다.
+
+올바른 입력 : 
+- 서로 다른 3자리 수
+- 게임이 끝난 경우 재시작/종료를 구분하는 1과 2 중 하나의 수
+
+---
+## ✏️ 제출 전 확인 체크 리스트 
+- [x] 요구 사항에 명시된 출력값 형식을 잘 지키는가?
+- [x] 출력 문구에 오타는 없는가?
+- [x] 테스트를 모두 통과했는가?
+- [x] Java 코드 컨벤션을 준수하였는가?
+  - [x] 변수명 확인
+  - [x] 메서드명 확인
+  - [x] 줄바꿈 확인
+  - [x] 주석 확인
+- [x] 랜덤 값 추출에 `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()`를 사용했는가?
+- [x] 사용자 입력값을 읽을 때 `camp.nextstep.edu.missionutils.Console`의 `readLine()`을 활용했는가?
+
